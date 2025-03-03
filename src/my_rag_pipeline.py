@@ -9,7 +9,7 @@ from langchain_core.runnables import RunnablePassthrough
 # --------------------------
 # Step 1: Load and Split Data
 # --------------------------
-loader = TextLoader("data/combined_data.txt", encoding="utf-8")
+loader = TextLoader("../data/combined_data.txt", encoding="utf-8")
 docs = loader.load()
 
 text_splitter = RecursiveCharacterTextSplitter(
