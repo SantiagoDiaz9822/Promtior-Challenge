@@ -27,8 +27,7 @@ retriever = vectorstore.as_retriever()
 # Build RAG Pipeline
 # Initialize Llama2 via Ollama
 from langchain_ollama import OllamaLLM
-# llm = OllamaLLM(model="llama2")  # Use this for the full Llama2 model
-llm = OllamaLLM(model="tinyllama") # Use this for the smaller "tinyllama" model so we can use Railway free trial
+llm = OllamaLLM(model="llama2")
 
 # Define the prompt template
 prompt = ChatPromptTemplate.from_template(
