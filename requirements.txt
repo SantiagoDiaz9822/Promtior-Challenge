@@ -14,3 +14,4 @@ langchain_community
 fastapi
 uvicorn
 sse_starlette
+rag_pipeline
