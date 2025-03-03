@@ -1,23 +1,25 @@
-# Use an official Python runtime as the base image
-FROM python:3.10-slim
+# Use a base image with Python and Ubuntu
+FROM ubuntu:22.04
 
-# Ensure Python output is sent straight to the terminal without buffering
-ENV PYTHONUNBUFFERED=1
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory inside the container
+# Install Ollama
+RUN curl -fsSL https://ollama.ai/install.sh | sh
+
+# Set up the working directory
 WORKDIR /app
-
-# Copy the requirements file and install dependencies
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
-
-# Copy the entire project into the container
 COPY . .
 
-# Make the entrypoint script executable
-RUN chmod +x entrypoint.sh
-# Expose the port that the application listens on
-EXPOSE 8000
+# Install Python dependencies
+RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Start the application using the entrypoint script
-CMD ["./entrypoint.sh"]
+# Expose ports for Ollama (11434) and FastAPI (8000)
+EXPOSE 8000 11434
+
+# Start Ollama server and FastAPI app
+CMD sh -c "ollama serve & sleep 10 && ollama pull llama2 && uvicorn src.app:app --host 0.0.0.0 --port 8000"
