@@ -1,26 +1,25 @@
-# Use an official Python runtime as a parent image
+# Use an official Python runtime as the base image
 FROM python:3.10-slim
 
-# Prevent Python from buffering stdout/stderr
+# Ensure Python output is sent straight to the terminal without buffering
 ENV PYTHONUNBUFFERED=1
 
-# Set working directory in the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements file and install Python dependencies
+# Copy the requirements file and install dependencies
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Copy the rest of the application code
+# Copy the entire project into the container
 COPY . .
 
-# Make entrypoint.sh executable
-COPY scripts/entrypoint.sh .
+# Make the entrypoint script executable
+COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
-
-# Expose the port that the app runs on (Railway uses the PORT environment variable)
+# Expose the port that the application listens on (Railway will provide a PORT env variable if needed)
 EXPOSE 8000
 
-# Run the entrypoint script
+# Start the application using the entrypoint script
 CMD ["./entrypoint.sh"]
