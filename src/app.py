@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from langserve import add_routes
-from rag_pipeline import rag_chain  # Import your RAG chain
+from my_rag_pipeline import rag_chain  # Import your RAG chain
 
 app = FastAPI(
     title="Promtior Chatbot API",
