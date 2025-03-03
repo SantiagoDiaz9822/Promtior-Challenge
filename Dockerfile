@@ -16,7 +16,6 @@ COPY . .
 
 # Make the entrypoint script executable
 RUN chmod +x entrypoint.sh
-
 # Expose the port that the application listens on
 EXPOSE 8000
 
