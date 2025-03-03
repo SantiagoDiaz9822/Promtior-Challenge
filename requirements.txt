@@ -4,6 +4,7 @@ langchain-community
 langchain-text-splitters
 langchain-core
 langchain-ollama
+langchain-huggingface
 langserve
 faiss-cpu
 pypdf
