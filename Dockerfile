@@ -15,10 +15,9 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 COPY . .
 
 # Make the entrypoint script executable
-COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
-# Expose the port that the application listens on (Railway will provide a PORT env variable if needed)
+# Expose the port that the application listens on
 EXPOSE 8000
 
 # Start the application using the entrypoint script
