@@ -46,18 +46,3 @@ rag_chain = (
     | prompt
     | llm
 )
-
-# Test the Pipeline
-
-if __name__ == "__main__":
-    # Ensure Ollama is running in the background first!
-    # Run `ollama serve` in a separate terminal
-    # Test questions
-    questions = [
-        "When was promtior founded?",
-        "What services does promtior offer?",
-    ]
-    for question in questions:
-        print(f"\nQuestion: {question}")
-        response = rag_chain.invoke(question)
-        print(f"Answer: {response}")

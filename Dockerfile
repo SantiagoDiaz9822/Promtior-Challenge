@@ -20,4 +20,4 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 EXPOSE 8000 11434
 
 # Start Ollama server and FastAPI app
-CMD sh -c "OLLAMA_NUM_PARALLEL=1 OLLAMA_MAX_LOADED_MODELS=1 ollama serve & sleep 20 && ollama pull tinyllama && uvicorn src.app:app --host 0.0.0.0 --port ${PORT:-8000}"
+CMD sh -c "ollama serve & sleep 20 && ollama pull llama2 && uvicorn src.app:app --host 0.0.0.0 --port ${PORT:-8000}"

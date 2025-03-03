@@ -1,3 +1,4 @@
+# File: src/app.py
 from fastapi import FastAPI
 from langserve import add_routes
 from src.my_rag_pipeline import rag_chain  # Ensure this import is correct
