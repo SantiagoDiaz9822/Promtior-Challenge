@@ -1,19 +1,19 @@
 from fastapi import FastAPI
 from langserve import add_routes
-from rag_pipeline import rag_chain  # Ensure this import is correct
+from src.my_rag_pipeline import rag_chain  # Ensure this import is correct
 import uvicorn
 import argparse
 
 app = FastAPI(
-    title="Promitor Chatbot API",
-    description="API for Promitor's RAG-powered chatbot using Llama2 and Ollama",
+    title="Promtior Chatbot API",
+    description="API for Promtior's RAG-powered chatbot using Llama2 and Ollama",
 )
 
 # Add the RAG chain as an endpoint
 add_routes(
     app,
     rag_chain,
-    path="/promitor-chatbot",
+    path="/promtior-chatbot",
 )
 
 if __name__ == "__main__":

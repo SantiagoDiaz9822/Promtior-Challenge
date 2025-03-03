@@ -1,25 +1,24 @@
-# Use a base image with Python and Ubuntu
-FROM ubuntu:22.04
+# Use an official Python runtime as a parent image
+FROM python:3.10-slim
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    curl \
-    python3 \
-    python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+# Prevent Python from buffering stdout/stderr
+ENV PYTHONUNBUFFERED=1
 
-# Install Ollama
-RUN curl -fsSL https://ollama.ai/install.sh | sh
-
-# Set up the working directory
+# Set working directory in the container
 WORKDIR /app
+
+# Copy requirements file and install Python dependencies
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the rest of the application code
 COPY . .
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+# Make entrypoint.sh executable
+RUN chmod +x entrypoint.sh
 
-# Expose ports for Ollama (11434) and FastAPI (8000)
-EXPOSE 8000 11434
+# Expose the port that the app runs on (Railway uses the PORT environment variable)
+EXPOSE 8000
 
-# Start Ollama server and FastAPI app
-CMD sh -c "ollama serve & sleep 10 && ollama pull llama2 && python src/app.py --host 0.0.0.0 --port 8000"
+# Run the entrypoint script
+CMD ["./entrypoint.sh"]
