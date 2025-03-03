@@ -1,0 +1,106 @@
+WELCOME
+TO THE BIONIC FUTURE
+2024 TECHNICAL TEST -PROMTIOR
+
+Welcome !
+Document : Technical Test
+Prepared by : Emiliano Chinelli and Ignacio Acuña
+Validity : 7 days from the date of sending
+Hi,
+Below you will find more information about Promtior and our technical test for the position you are applying 
+for.
+The technical test may seem demanding or not, depending on your current skills. In any case, once you dive 
+into the documentation and technologies we recommend, you will see that it is not so complex, but it will 
+certainly be a challenge worth attempting!
+Our greatest commitment as founders is to provide you with the best team of colleagues you could dream of, 
+and this commitment starts by proposing a technical challenge in line with the future world and technologies.
+Best of luck, see you soon!
+Emi and Nacho
+
+In November 2022 , ChatGPT was released, causing a significant impact 
+and challenging previously unquestionable principles: 
+Creativity is an exclusively human trait .
+The speed of these technological advancements has put 
+unprecedented pressure on leaders to incorporate AI into their 
+businesses.
+In May 2023 , Promtior was founded facing this context, where the key 
+question is: how to approach a scenario of transversal disruption and 
+maximize the opportunities it presents?
+Through its technological and organizational consulting, Promtior offers 
+a way to generate new business models, answering this question and 
+bringing companies at the forefront of their sector.
+About Promtior
+that started their transition towards a Bionic
+future, with the help of Promtior Organizations
+CAF5M Travel 
+GroupGuyer &
+RegulesHandy Paigo
+VangweForestal 
+Atlántico SurAdvice 
+Consulting
+Infocorp
+L'Oreal 
+Latam
+ST Consultores
+ SIEE
+RPA 
+Maker
+CIEMSA
+S1
+ Incapital
+
+Introduction
+At Promtior, we specialize in implementing cutting -edge generative solutions, with a focus on the 
+implementation of the RAG (Retrieval Augmented Generation) architecture to meet the diverse needs of our 
+clients.
+Objective of the Test
+Develop and deploy a chatbot assistant that uses the RAG architecture to answer questions about the 
+content of the Promtior website, based on the LangChain library .
+Extra information about Promtior can be found in this presentation. Adding it as a source gives extra points.Technical test instructions
+
+Functionality
+The chatbot should be able to answer the following questions:
+-What services does Promtior offer?
+-When was the company founded?
+Technologies tobe used
+●Implement the solution using LangChain with Langserve :
+-Quickstart | 
+ Langchain https://python.langchain.com/docs/get_started/quickstart
+-Use the OpenAI API if you have a subscription, otherwise, you can use Ollama and LlaMA 2 as explained in the 
+LangChain documentation.
+Deployment
+Deploy the solution on a cloud of your choice (AWS, Azure).
+•
+ Tip: although using one of the mentioned clouds is valued, you can use Railway to facilitate the deployment.
+•Doc Langserve deployment: https://python.langchain.com/docs/langserve#deploymentTechnical requirements
+
+Objective of the Documentation
+Provide a comprehensive overview of the approach, implementation, and technologies used to develop the 
+chatbot assistant, enabling a detailed evaluation of the proposed solution.
+Required Content
+-Project Overview : A brief summary in your own words about how you approached and solved the 
+challenge. This includes the implementation logic, the main challenges encountered, and how you 
+overcame them.
+-Component Diagram : A diagram showing the components involved in the solution and their interactions 
+from the time the question is received by the chatbot until the response is given.
+Tip: You can use the following tools: Draw.io, Lucidchart .Required documentation
+
+Source Code and Documentation
+The source code and documentation must be uploaded to a public GitHub repository.
+The required documentation should be uploaded in the same repository within the /doc folder.
+Once the source code is uploaded, the following form must be completed:
+https://forms.microsoft.com/r/2Q6iZpYvPT
+Considerations
+If you have any questions about the test instructions or the delivery format, you can ask us at 
+challenges@promtior.ai and we will respond as soon as possible.Delivery format and considerations
+
+Final words
+This test will help us better understand your current knowledge and seniority.
+It is designed so that someone with programming knowledge and good comprehension skills can solve it 
+without problems by relying on the shared documentation.
+We wish you great success in this process, and we hope to continue the transition to a Bionic future 
+together!!!
+
+https://promtior.ai/Contact
+Ignacio.acuna@promtior.ai
+TECHNICAL TEST

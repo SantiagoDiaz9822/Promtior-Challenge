@@ -1,2 +1,3 @@
-# Promptior-Challenge
-Challenge created by Promptior for the position of AI Engineer
+# promtior-Challenge
+
+Challenge created by promtior for the position of AI Engineer

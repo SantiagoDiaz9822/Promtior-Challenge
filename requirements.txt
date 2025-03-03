@@ -1,0 +1,16 @@
+langchain
+langchain-openai
+langchain-community
+langserve
+faiss-cpu
+pypdf
+python-dotenv
+langchain-ollama
+beautifulsoup4 
+PyPDF2
+ollama
+sentence-transformers
+langchain_community
+fastapi
+uvicorn
+sse_starlette
