@@ -5,7 +5,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings  # Open-source 
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_ollama import OllamaEmbeddings, OllamaLLM
+from langchain_ollama import OllamaLLM
 
 # Load and Split Data
 loader = TextLoader("data/combined_data.txt", encoding="utf-8")
@@ -18,11 +18,7 @@ text_splitter = RecursiveCharacterTextSplitter(
 splits = text_splitter.split_documents(docs)
 
 # Create Vector Store
-embeddings = OllamaEmbeddings(
-    model="llama2:7b",
-    base_url="http://ec2-3-85-233-72.compute-1.amazonaws.com:11434"  # Local Ollama server (It should be running)
-)
-
+embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
 vectorstore = FAISS.from_documents(splits, embeddings)
 retriever = vectorstore.as_retriever()

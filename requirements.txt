@@ -2,6 +2,7 @@ langchain-core
 langchain-text-splitters
 langchain-community
 langchain-ollama
+langchain-huggingface
 langserve
 
 faiss-cpu
