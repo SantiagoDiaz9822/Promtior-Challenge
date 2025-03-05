@@ -19,8 +19,8 @@ splits = text_splitter.split_documents(docs)
 
 # Create Vector Store
 embeddings = OllamaEmbeddings(
-    model="llama2",
-    base_url="host.docker.internal:11434"  # Local Ollama server (It should be running)
+    model="llama2:7b",
+    base_url="http://ec2-3-85-233-72.compute-1.amazonaws.com:11434"  # Local Ollama server (It should be running)
 )
 
 
@@ -30,8 +30,8 @@ retriever = vectorstore.as_retriever()
 # Build RAG Pipeline
 # Initialize Llama2 via Ollama 
 llm = OllamaLLM(
-    model="llama2",
-    base_url="host.docker.internal:11434"  # Local Ollama server (It should be running)
+    model="llama2:7b",
+    base_url="http://ec2-3-85-233-72.compute-1.amazonaws.com:11434"  # Local Ollama server (It should be running)
 )
 
 # Define the prompt template
