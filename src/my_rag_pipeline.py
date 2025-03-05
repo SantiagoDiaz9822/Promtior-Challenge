@@ -5,7 +5,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings  # Open-source 
 from langchain_community.vectorstores import FAISS
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-from langchain_huggingface import HuggingFaceEmbeddings 
+from langchain_ollama import OllamaEmbeddings, OllamaLLM
 
 # Load and Split Data
 loader = TextLoader("data/combined_data.txt", encoding="utf-8")
@@ -18,16 +18,21 @@ text_splitter = RecursiveCharacterTextSplitter(
 splits = text_splitter.split_documents(docs)
 
 # Create Vector Store
-# Use open-source embeddings (no API key needed)
-embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+embeddings = OllamaEmbeddings(
+    model="llama2",
+    base_url="host.docker.internal:11434"  # Local Ollama server (It should be running)
+)
+
 
 vectorstore = FAISS.from_documents(splits, embeddings)
 retriever = vectorstore.as_retriever()
 
 # Build RAG Pipeline
-# Initialize Llama2 via Ollama
-from langchain_ollama import OllamaLLM
-llm = OllamaLLM(model="llama2")
+# Initialize Llama2 via Ollama 
+llm = OllamaLLM(
+    model="llama2",
+    base_url="host.docker.internal:11434"  # Local Ollama server (It should be running)
+)
 
 # Define the prompt template
 prompt = ChatPromptTemplate.from_template(

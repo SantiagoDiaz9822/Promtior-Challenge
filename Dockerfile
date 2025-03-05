@@ -1,23 +1,25 @@
-# Use a lighter base image
-FROM python:3.10-slim-buster
+# File: Dockerfile
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONPATH="${PYTHONPATH}:/app"
+
+# Set working directory
+WORKDIR /app
 
 # Install system dependencies
-RUN apt-get update && apt-get install -y \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install Ollama
-RUN curl -fsSL https://ollama.ai/install.sh | sh
-
-# Set up the working directory
-WORKDIR /app
-COPY . .
+RUN apt-get update && apt-get install -y curl
 
 # Install Python dependencies
-RUN pip3 install --no-cache-dir -r requirements.txt
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose ports for Ollama (11434) and FastAPI (8000)
-EXPOSE 8000 11434
+# Copy application code and data
+COPY src/ src/
+COPY data/ data/
 
-# Start Ollama server and FastAPI app
-CMD sh -c "ollama serve & sleep 20 && ollama pull llama2 && uvicorn src.app:app --host 0.0.0.0 --port ${PORT:-8000}"
+# Expose port for FastAPI
+EXPOSE 8000
+
+# Start the FastAPI application
+CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8000"]
